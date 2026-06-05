@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago Exitoso | La Matrix</title>
+  <link rel="icon" type="image/png" href="./logo-euromillon.png" />
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #050505;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .success-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      max-width: 1000px;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @media (min-width: 768px) {
+      .success-container {
+        flex-direction: row;
+        background: rgba(10, 10, 10, 0.75);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(0, 255, 65, 0.2);
+        border-radius: 20px;
+        padding: 4rem;
+        box-shadow: 0 0 50px rgba(0, 255, 65, 0.1);
+      }
+    }
+
+    .success-image-wrapper {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      flex-shrink: 0;
+      /* Eliminamos los bordes y sombras para el efecto PNG */
+    }
+    
+    .success-image-wrapper::after {
+      content: none; /* Quitamos el gradiente oscuro */
+    }
+
+    .success-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      mix-blend-mode: screen; /* Magia: el fondo negro desaparece y se vuelve PNG transparente */
+      animation: pulse-float 4s infinite alternate;
+      filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.3)); /* Resplandor rojo */
+    }
+
+    @keyframes pulse-float {
+      0% { filter: brightness(1) drop-shadow(0 0 10px rgba(255, 0, 0, 0.2)); transform: translateY(0); }
+      100% { filter: brightness(1.2) drop-shadow(0 0 30px rgba(255, 0, 0, 0.5)); transform: translateY(-10px); }
+    }
+
+    .success-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--matrix-green);
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #ddd;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+      padding-bottom: 1rem;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlight-green {
+      color: var(--matrix-green);
+      font-weight: bold;
+    }
+
+    .btn-glow-green {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      background: rgba(0, 255, 65, 0.1);
+      color: var(--matrix-green);
+      border: 1px solid var(--matrix-green);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    .btn-glow-green:hover {
+      background: var(--matrix-green);
+      color: #000;
+      box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.2); }
+    }
+    
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 255, 65, 0.1);
+      border: 1px solid rgba(0, 255, 65, 0.3);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      color: var(--matrix-green);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--matrix-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--matrix-green);
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Canvas Global Matrix -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <div class="success-container">
+    <div class="success-image-wrapper">
+      <img src="./cybernetic-hand-isolated.png" alt="Pastilla Roja - Has Abierto los Ojos" />
+    </div>
+    
+    <div class="success-content">
+      <div class="status-badge">
+        <div class="dot"></div>
+        TRANSACCIÓN VERIFICADA
+      </div>
+      <h1>BIENVENIDO A<br/>LA REALIDAD</h1>
+      <h2>Has tomado la decisión correcta.</h2>
+      <p>El código ha sido desencriptado para ti. Has dado el paso que la mayoría teme dar. El sistema ha registrado exitosamente tu entrada y <span class="highlight-green">tu acceso ha sido concedido</span>.</p>
+      <p>Tus credenciales de máxima seguridad y las instrucciones de despliegue han sido enviadas a tu correo electrónico. Revísalo ahora mismo.</p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { MatrixRain } from './matrix-rain.js';
+    const matrix = new MatrixRain('matrix-canvas');
+    matrix.start();
+  </script>
+</body>
+</html>

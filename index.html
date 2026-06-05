@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Descubre la infraestructura de IA y Trading que la industria no quiere que veas. Automatiza, predice y domina con La Matrix." />
+    <meta property="og:title" content="El Despertar | La Matrix Trading" />
+    <meta property="og:description" content="Automatiza, predice y domina con modelos de IA y trading avanzados." />
+    <meta property="og:image" content="./camino-al-dinero.jpg" />
+    <title>El Despertar | Matrix Infrastructure</title>
+    <link rel="icon" type="image/png" href="./logo-euromillon.png" />
+    <!-- Modern font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Overlay de carga -->
+    <div id="loader">
+      <div class="loader-text">INICIANDO PROTOCOLO...</div>
+    </div>
+
+    <!-- Navegación -->
+    <header id="main-nav">
+      <div class="logo-container">
+        <img src="./logo-euromillon.png" alt="Euromillon Logo" class="logo" />
+        <img src="./camino-al-dinero.jpg" alt="Camino al Dinero" class="logo-secondary" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#hero">01. INICIO</a></li>
+          <li><a href="#productos">02. ARSENAL</a></li>
+          <li><a href="#autoridad">03. COMUNIDAD</a></li>
+          <li><a href="#" id="open-cart">04. CHECKOUT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Canvas Global Matrix -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Bienvenido a tu <span class="highlight-glow">despertar.</span></h1>
+        <p class="hero-subtitle">Mientras el resto sigue las reglas de un sistema obsoleto, la élite automatiza, predice y domina. Descubre la infraestructura de IA y Trading que la industria no quiere que veas.</p>
+        <button id="cta-main" class="btn-matrix">
+          <span class="btn-text">[ ACCEDER AL SISTEMA ]</span>
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Sección Problema / Autoridad -->
+    <section id="autoridad">
+      <div class="container">
+        <h2>El mercado está lleno de ruido. <br/>Nosotros construimos <span class="highlight">silenciadores.</span></h2>
+        <div class="autoridad-content">
+          <p>Estás aquí porque te has dado cuenta: los métodos tradicionales están muertos. No necesitas otro curso vacío; necesitas infraestructura, modelos predictivos y sistemas que trabajen mientras tú te retiras del tablero operativo.</p>
+          <p>Esto no es para todos. Es para quienes entienden que el código y la IA son la nueva moneda de cambio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos">
+      <div class="container">
+        <h2 class="section-title">ARSENAL DE GUERRA CONTRA LA MATRIX</h2>
+        <div class="products-grid">
+          <!-- Producto 1 -->
+          <div class="product-card">
+            <div class="card-glow"></div>
+            <img src="./forex-curso.png" alt="Dominio Forex" class="product-image" loading="lazy" />
+            <h3>Dominio Forex: Tu Primer Paso al Éxito</h3>
+            <p class="card-desc">Desencripta el mercado y domina el flujo del dinero. Aprenderás a operar Forex desde cero con estrategias letalmente efectivas, respaldado por un escuadrón de élite que vigilará tu espalda en cada trade.</p>
+            <div class="price">$1,299 MXN</div>
+            <button class="add-to-cart" data-id="forex" data-name="Curso de Forex" data-price="1299">INICIAR COMPRA</button>
+          </div>
+
+          <!-- Producto 2 -->
+          <div class="product-card">
+            <div class="card-glow"></div>
+            <div class="product-images-row">
+              <img src="./modelo-ia-1.jpg" alt="Modelo IA 1" class="product-image-half" loading="lazy" />
+              <img src="./modelo-ia-2.jpg" alt="Modelo IA 2" class="product-image-half" loading="lazy" />
+            </div>
+            <h3>Genera Modelos IA</h3>
+            <p class="card-desc">Crea avatares y modelos digitales hiperrealistas con IA. Descubre el secreto para clonar identidades visuales y de voz, construyendo activos digitales que monetizan en automático las 24 horas del día.</p>
+            <div class="price">$999 MXN</div>
+            <button class="add-to-cart" data-id="modelosia" data-name="Modelos con IA" data-price="999">INICIAR COMPRA</button>
+          </div>
+
+          <!-- Producto 3 -->
+          <div class="product-card">
+            <div class="card-glow"></div>
+            <img src="./maestria-ia.png" alt="Maestría IA" class="product-image" loading="lazy" />
+            <h3>Maestría en IA: Prompting y Automatización</h3>
+            <p class="card-desc">Conviértete en el arquitecto del algoritmo. Domina el arte oscuro del Prompt Engineering avanzado y automatiza flujos de trabajo masivos haciendo que la Inteligencia Artificial trabaje incansablemente para ti.</p>
+            <div class="price">$899 MXN</div>
+            <button class="add-to-cart" data-id="usoia" data-name="Uso de IA" data-price="899">INICIAR COMPRA</button>
+          </div>
+        </div>
+        
+        <div class="products-legend">
+          <p>✅ <strong>Todos los cursos incluyen:</strong> Soporte 24/7, Acceso a la comunidad y Acompañamiento en el proceso.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comunidad -->
+    <section id="comunidad">
+      <div class="container">
+        <h2 class="section-title">LA RESISTENCIA</h2>
+        <p class="subtitle">El conocimiento solitario no vence al sistema. Necesitas aliados.</p>
+        <div class="terminal" style="max-width: 800px; margin: 0 auto;">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="terminal-body" style="text-align: center; padding: 3rem 2rem;">
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem; color: #ddd;">
+              <strong style="color: var(--matrix-green); font-size: 1.3rem;">No estás comprando simples cursos, estás adquiriendo tu llave de acceso al 1%.</strong>
+            </p>
+            <a href="https://t.me/+8enOa0xMZvsyZDNh" target="_blank" class="btn-matrix" style="display: inline-block; font-size: 1.1rem; padding: 1rem 3rem;">
+              <span class="btn-text">>> ENTRAR A LA RESISTENCIA</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Legal -->
+    <footer>
+      <div class="container footer-content">
+        <div class="logo-container">
+          <img src="./logo-euromillon.png" alt="Euromillon Logo" class="footer-logo" />
+        </div>
+        <div class="footer-links">
+          <a href="./terminos.html">Términos y Condiciones</a>
+          <a href="./privacidad.html">Políticas de Privacidad</a>
+          <a href="./descargo.html">Descargo de Responsabilidad</a>
+        </div>
+        <div class="footer-contact">
+          <p>Soporte: <strong>senseilarc@gmail.com</strong></p>
+          <div class="social-links">
+            <a href="https://www.tiktok.com/@eurmillon" target="_blank">TikTok</a>
+            <a href="https://www.instagram.com/eurmillon/" target="_blank">Instagram</a>
+          </div>
+          <p style="margin-top: 0.5rem; color: #666; font-size: 0.85rem;">
+            &copy; 2024 La Matrix Trading. Todos los derechos reservados.<br>
+            Este sitio no está asociado, patrocinado ni respaldado por Facebook, Instagram, TikTok, YouTube, X (Twitter) ni ninguna otra red social o sus empresas matrices. Todos los nombres de marcas y logotipos son propiedad de sus respectivos dueños.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Slide-out Cart -->
+    <div id="cart-overlay"></div>
+    <div id="slide-cart">
+      <div class="cart-header">
+        <h3>PROTOCOLO DE ACCESO</h3>
+        <button id="close-cart">✕</button>
+      </div>
+      <div class="cart-body">
+        <div id="cart-items">
+          <!-- Items del carrito -->
+        </div>
+        <div id="upsell-container" class="hidden">
+          <div class="upsell-box">
+            <p class="sys-warning">⚠️ OFERTA EXCLUSIVA</p>
+            <p>Lleva el "Curso de Uso de IA" (Precio normal $899 MXN) por solo $499 MXN adicionales.</p>
+            <button id="add-upsell" class="btn-small">[+ Añadir Curso Uso de IA por $499 MXN]</button>
+          </div>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="total-row">
+          <span>TOTAL:</span>
+          <span id="cart-total">$0 MXN</span>
+        </div>
+        <button id="checkout-btn" class="btn-matrix disabled">
+          <span class="btn-text">PROCEDER AL PAGO SEGURO</span>
+        </button>
+        <div class="payment-icons">
+          <span>💳 Stripe</span>
+          <span>🌐 Crypto</span>
+          <span>🍎 Apple Pay</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
