@@ -9,4 +9,16 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        success: './success.html',
+        cancel: './cancel.html',
+        terminos: './terminos.html',
+        privacidad: './privacidad.html',
+        descargo: './descargo.html'
+      }
+    }
+  }
 });
